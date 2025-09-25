@@ -1,0 +1,41 @@
+PS D:\Terraform\Infrastructure\25-9_1> terraform import "module.storage_accounts[`"storage1`"].azurerm_storage_account.storage" "/subscriptions/d73ab938-2a60-42e2-87cd-9362d4e73029/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/bondhurbabakenomatal"
+╷
+│ Error: Index value required
+│
+│   on <import-address> line 1:
+│    1: module.storage_accounts[storage1].azurerm_storage_account.storage
+│
+│ Index brackets must contain either a literal number or a literal string.
+╵
+
+For information on valid syntax, see:
+https://www.terraform.io/docs/cli/state/resource-addressing.html
+----------------------------------------------------------------------------------------------
+
+Solution: (terraform state list )
+
+terraform import module.storage_accounts[\"storage2\"].azurerm_storage_account.storage /subscriptions/d73ab938-2a60-42e2-87cd-9362d4e73029/resourceGroups/rg2/providers/Microsoft.Storage/
+storageAccounts/matarani
+
+
+
+
+
+D:\Terraform\Infrastructure\25-9_1>terraform import module.storage_accounts[\"storage2\"].azurerm_storage_account.storage /subscriptions/d73ab938-2a60-42e2-87cd-9362d4e73029/resourceGroups/rg2/providers/Microsoft.Storage/
+storageAccounts/matarani            
+module.storage_accounts["storage2"].azurerm_storage_account.storage: Importing from ID "/subscriptions/d73ab938-2a60-42e2-87cd-9362d4e73029/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/matarani"...
+module.storage_accounts["storage2"].azurerm_storage_account.storage: Import prepared!
+  Prepared azurerm_storage_account for import
+module.storage_accounts["storage2"].azurerm_storage_account.storage: Refreshing state... [id=/subscriptions/d73ab938-2a60-42e2-87cd-9362d4e73029/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/matarani]    
+
+Import successful!
+
+The resources that were imported are shown above. These resources are now in
+your Terraform state and will henceforth be managed by Terraform.
+
+
+D:\Terraform\Infrastructure\25-9_1>terraform state list                                                                                                                                                                      
+module.resource_groups["rg1"].azurerm_resource_group.rg
+module.resource_groups["rg2"].azurerm_resource_group.rg
+module.storage_accounts["storage1"].azurerm_storage_account.storage
+module.storage_accounts["storage2"].azurerm_storage_account.storage
