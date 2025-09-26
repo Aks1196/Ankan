@@ -1,0 +1,37 @@
+variable "resource_groups" {
+  type = map(object({
+    name     = string
+    location = string
+  }))
+
+  default = {
+    rg1 = {
+      name     = "rg1"
+      location = "West US"
+    }
+    rg2 = {
+      name     = "rg2"
+      location = "East US"
+    }
+  }
+}
+
+variable "storage_accounts" {
+  type = map(object({
+    name             = string
+    rg               = string
+    replication_type = string
+  }))
+  default = {
+    storage1 = {
+      name             = "bondhurbabakenomatal"
+      rg               = "rg1"
+      replication_type = "LRS"
+    }
+    storage2 = {
+      name             = "matarani"
+      rg               = "rg2"
+      replication_type = "GRS"
+    }
+  }
+}
