@@ -1,4 +1,4 @@
-variable "vnet" {
+variable "Angurawala_Vnet" {
   description = "Configuration for the Virtual Network."
   type = object({
     address_space = list(string)

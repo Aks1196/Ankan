@@ -1,4 +1,4 @@
 resource "azurerm_resource_group" "Hurbal" {
-  name     = var.rg.name
-  location = var.rg.location 
+  name     = var.Angurwala_rg.name
+  location = var.Angurwala_rg.location 
 }
