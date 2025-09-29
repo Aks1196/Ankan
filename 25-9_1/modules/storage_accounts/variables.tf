@@ -1,4 +1,4 @@
-variable "storage_accounts"{
+variable "storage_accounts1"{
   type = object({
     name             = string
     replication_type = string
